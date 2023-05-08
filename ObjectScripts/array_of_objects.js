@@ -1,35 +1,25 @@
 // func takes an array of objects (one obj is a price the other is the part code) print out a packing list w/ a quantity and part code and then the price at the end.
+
 //set inventory and prices
-let part1 = {
+const part1 = {
   partCode: "XYZ:1234-L",
-  price: 200,
-};
-let part2 = {
-  partCode: "XYZ:1234-md",
   price: 100,
 };
+const part2 = {
+  partCode: "XYZ:1234-md",
+  price: 200,
+};
 
-let part3 = {
+const part3 = {
   partCode: "XYZ:1234-sm",
   price: 300,
 };
 let inventory = [part1, part2, part3];
 
-// const bensOrder1 = {
-//     part1Quantity: 10,
-//     part2Quantity: 0,
-//     part3Quantity: 5
-// }
-// const bensOrder2 = {
-//     part1Quantity: 0,
-//     part2Quantity: 5,
-//     part3Quantity: 10
-
 //bens order
-let bensOrder = [part2, part1, part2, part3, part3, part3];
+const bensOrder = [part2, part1, part2, part3, part3, part3];
 
 //print invoice
-
 function printInvoice(customerOrder, inventory) {
   let part1Count = 0;
   let part2Count = 0;
@@ -48,29 +38,33 @@ function printInvoice(customerOrder, inventory) {
   }
   console.log("Invoice:");
   console.log(
-    "Quantity:",
-    part1Count,
-    "Part Code:",
-    part1.partCode,
-    "Total Price:",
-    part1Count * part1.price
+    "Quantity-(" +
+      part1Count +
+      "), Part Code-(" +
+      part1.partCode +
+      "), Total Price-($" +
+      part1Count * part1.price +
+      ")"
   );
   console.log(
-    "Quantity:",
-    part2Count,
-    "Part Code:",
-    part2.partCode,
-    "Total Price:",
-    part2Count * part2.price
+    "Quantity-(" +
+      part2Count +
+      "), Part Code-(" +
+      part2.partCode +
+      "), Total Price-($" +
+      part2Count * part2.price +
+      ")"
   );
   console.log(
-    "Quantity:",
-    part3Count,
-    "Part Code:",
-    part3.partCode,
-    "Total Price:",
-    part3Count * part3.price
+    "Quantity-(" +
+      part3Count +
+      "), Part Code-(" +
+      part3.partCode +
+      "), Total Price-($" +
+      part3Count * part3.price +
+      ")"
   );
+  console.log("-".repeat(50));
   let customerInvoice = {
     part1Quantity: part1Count,
     part1Total: part1Count * part1.price,
