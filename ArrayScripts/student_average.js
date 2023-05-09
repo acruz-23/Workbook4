@@ -7,7 +7,7 @@ let students = [
   { name: "Ezra", scores: [100, 99, 100, 87] },
 ];
 
-function getAndPrintStudentAverage(scores) {
+function getStudentAverage(scores) {
   let sum = 0;
   let i;
   for (i = 0; i < scores.length; i++) {
@@ -24,7 +24,7 @@ function getAndPrintClassAverage(students) {
   let classSum = 0;
   let studentAvg = 0;
   for (i = 0; i < students.length; i++) {
-    studentAvg = getAndPrintStudentAverage(students[i].scores);
+    studentAvg = getStudentAverage(students[i].scores);
     console.log(students[i].name, "average is:", studentAvg.toFixed(2));
     classSum += studentAvg;
   }
@@ -32,5 +32,5 @@ function getAndPrintClassAverage(students) {
   console.log("The Class Average is:", classAvg.toFixed(2));
   console.log("-".repeat(30));
 }
-// getAndPrintClassAverage(students);
+
 getAndPrintClassAverage(students);

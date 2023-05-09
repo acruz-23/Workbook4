@@ -5,6 +5,7 @@ const part1 = {
   partCode: "XYZ:1234-L",
   price: 100,
 };
+
 const part2 = {
   partCode: "XYZ:1234-md",
   price: 200,
@@ -14,13 +15,14 @@ const part3 = {
   partCode: "XYZ:1234-sm",
   price: 300,
 };
+
 let inventory = [part1, part2, part3];
 
 //bens order
 const bensOrder = [part2, part1, part2, part3, part3, part3];
 
 //print invoice
-function printInvoice(customerOrder, inventory) {
+function printInvoice(customerOrder) {
   let part1Count = 0;
   let part2Count = 0;
   let part3Count = 0;
