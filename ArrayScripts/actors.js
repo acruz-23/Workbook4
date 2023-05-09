@@ -42,10 +42,8 @@ function actorsInAtLeastXFIlms(memberArray, numOfFilms) {
 }
 function searchMembersNameThatStartsWithX(memberArray, name) {
   let foundmatches = [];
-  let nameString;
   for (let i = 0; i < memberArray.length; i++) {
-    nameString = memberArray[i].name;
-    if (nameString.indexOf(name) == 0) {
+    if (memberArray[i].name.indexOf(name) == 0) {
       foundmatches.push(memberArray[i].name);
     }
   }
@@ -58,10 +56,11 @@ function searchMemberNameInMovieThatStartsWithX(memberArray, name) {
   let nameString;
   for (let i = 0; i < memberArray.length; i++) {
     let filmArray = memberArray[i].films;
-    for (let j = 1; j < filmArray.length; j++) {
-      nameString = filmArray[j - 1];
+    for (let j = 0; j < filmArray.length; j++) {
+      nameString = filmArray[j];
       if (nameString[0] == name) {
         foundmatches.push(memberArray[i].name);
+        break;
       }
     }
   }

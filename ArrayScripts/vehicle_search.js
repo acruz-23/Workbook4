@@ -88,10 +88,10 @@ function findExpiredRegistration(vehicleArray) {
   return foundmatches;
 }
 
-function findVehiclesByCapacity(vehicleArray, capacity) {
+function findVehiclesByMinCapacity(vehicleArray, capacity) {
   let foundmatches = [];
   for (let i = 0; i < vehicleArray.length; i++) {
-    if (vehicleArray[i].capacity == capacity) {
+    if (vehicleArray[i].capacity >= capacity) {
       foundmatches.push(vehicleArray[i].licenseNo);
     }
   }
@@ -99,12 +99,10 @@ function findVehiclesByCapacity(vehicleArray, capacity) {
 }
 function searchLicensePlateEndsWithX(vehicleArray, plate) {
   let foundmatches = [];
-  let nameString;
   let dashLocation;
   for (let i = 0; i < vehicleArray.length; i++) {
-    nameString = vehicleArray[i].licenseNo;
-    dashLocation = nameString.indexOf("-");
-    if (nameString.indexOf(plate) == dashLocation + 1) {
+    dashLocation = vehicleArray[i].licenseNo.indexOf("-");
+    if (vehicleArray[i].licenseNo.indexOf(plate) == dashLocation + 1) {
       foundmatches.push(vehicleArray[i].licenseNo);
     }
   }
@@ -112,7 +110,13 @@ function searchLicensePlateEndsWithX(vehicleArray, plate) {
   return foundmatches;
 }
 
-console.log(findVehiclesByColor(vehicles, "Red"));
-console.log(findVehiclesByCapacity(vehicles, 6));
-console.log(searchLicensePlateEndsWithX(vehicles, "222"));
-console.log(findExpiredRegistration(vehicles));
+console.log("Red Vehicles:", findVehiclesByColor(vehicles, "Red"));
+console.log(
+  "Vehicles with capacity of 6:",
+  findVehiclesByMinCapacity(vehicles, 6)
+);
+console.log(
+  "Plates that end with 222:",
+  searchLicensePlateEndsWithX(vehicles, "222")
+);
+console.log("Expired Registration:", findExpiredRegistration(vehicles));

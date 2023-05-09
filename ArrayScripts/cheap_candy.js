@@ -20,10 +20,8 @@ function findCandyLessThanX(candyArray, maxCost) {
 
 function searchInventoryforX(inventory, product) {
   let foundmatches = [];
-  let productString;
   for (let i = 0; i < inventory.length; i++) {
-    productString = inventory[i].product;
-    if (productString.indexOf(product) != -1) {
+    if (inventory[i].product.indexOf(product) != -1) {
       foundmatches.push(inventory[i].product);
     }
   }
